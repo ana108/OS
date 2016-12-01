@@ -1,9 +1,9 @@
 all:  main.o FileManager.o
 	g++-6 -o share main.o FileManager.o
 
-main: main.o
-	g++-6 -c  main.c
-
+main.o: main.c
+	gcc-6 -c main.c
+	
 send: send.o FileManager.o
 	g++-6 -o send send.o FileManager.o
 
