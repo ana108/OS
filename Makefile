@@ -1,14 +1,17 @@
-all:  main.o
-	g++ -o share main.o
+all:  main.o FileManager.o
+	g++-6 -o share main.o FileManager.o
 
 main: main.o
-	gcc -c  main.c
+	g++-6 -c  main.c
 
-send: send.o
-	g++ -o send send.o
+send: send.o FileManager.o
+	g++-6 -o send send.o FileManager.o
 
 send.o: send.c
-	gcc -c send.c
+	gcc-6 -c send.c
+
+FileManager.o: FileManager.cc
+	g++-6 -c FileManager.cc	
 
 clean:
 	rm -f *.o

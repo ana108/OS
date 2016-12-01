@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/wait.h>
+#include "FileManager.h"
 
 int main (int argc, char* argv[])
 {
@@ -16,4 +17,10 @@ int main (int argc, char* argv[])
   scanf("%s",st);
   printf("Result: %s\n",st);
   return 0;
+}
+int sendFile(){
+
+	//initilize server
+	FileManager file;
+    file.launch();
 }
