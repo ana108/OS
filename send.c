@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include "FileManager.h"
 
+int sendFile();
 int main (int argc, char* argv[])
 {
   printf("The number of arguments passed are: %d\n",argc);
@@ -16,6 +17,7 @@ int main (int argc, char* argv[])
   char st[10];
   scanf("%s",st);
   printf("Result: %s\n",st);
+  sendFile();
   return 0;
 }
 int sendFile(){
@@ -23,4 +25,5 @@ int sendFile(){
 	//initilize server
 	FileManager file;
     file.launch();
+	printf("Server was launched...");
 }
