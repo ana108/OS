@@ -10,8 +10,14 @@ void FileManager::launch(){
 	if(child_pid == -1) 
 		cout<<"Failed to launch Server!";
 	else if(child_pid == 0){
-      	cout<<"\n\nServer Launching..." <<endl;		
-		execlp("node", "node", "./Comp3000HTTPServer/server.js", ppid, NULL);
+      	cout<<"\n\nServer Launching..." <<endl;
+		 char buf[1024];
+		int siz = readlink("/proc/self/exe", buf, 1024);
+		buf[siz-4] = '\0'; //send exe file is size 4
+		printf("Bytes found: %d\n", siz);
+		string pathName = buf;
+		strcat(buf, "Comp3000HTTPServer/server.js");
+		execlp("node", "node",buf, ppid, NULL);
 		fprintf(stderr,"failded %s\n",strerror(errno));
       	cout<<"\n\n\nLaunching failed" <<endl;
 	}
