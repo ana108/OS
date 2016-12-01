@@ -14,7 +14,6 @@ void FileManager::launch(){
 		 char buf[1024];
 		int siz = readlink("/proc/self/exe", buf, 1024);
 		buf[siz-4] = '\0'; //send exe file is size 4
-		printf("Bytes found: %d\n", siz);
 		string pathName = buf;
 		strcat(buf, "Comp3000HTTPServer/server.js");
 		execlp("node", "node",buf, ppid, NULL);
