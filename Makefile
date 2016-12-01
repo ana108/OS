@@ -8,10 +8,10 @@ send: send.o FileManager.o
 	g++-6 -o send send.o FileManager.o
 
 send.o: send.c
-	gcc-6 -c send.c
+	g++-6 -c send.c
 
 FileManager.o: FileManager.cc
 	g++-6 -c FileManager.cc	
 
 clean:
-	rm -f *.o
+	rm -f *.o share send
